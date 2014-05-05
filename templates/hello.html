@@ -1,0 +1,44 @@
+{% extends MASTER_TEMPLATE %}
+
+{% block content %}
+    <div style="float:right">
+        <a href="{{ return_url }}"><img src="{% url static 'images/bubblearrow-left.png' %}"></a>
+        <a href="{{ return_url }}">BACK</a>
+        <div>
+            <form method="post">{% csrf_token %}
+             {{ options_form }}
+                <br>
+             <input type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+    <h1><img src="{% url hello_static 'hello_mdid.png' %}"></h1>
+
+    {{ notes|default:'Hey, no form passed me anything!' }}
+
+    <hr>
+    <div style="">
+
+        {% for item in data %}
+            <div style="float: left;  padding: 2em; margin: 2em;">
+                <img src="{{ item.img_src }}" style="max-width: 60%; ">
+
+                <div class="metadata" style="float: left; padding: 2em 0 2em 2em; margin: 2em;">
+                    {{ item.order }}
+                    <dl>
+                        {% for value in item.metadata %}
+                            <dt>{{ value.label }}</dt>
+                            <dd>{{ value.value }}</dd>
+                        {% endfor %}
+                        <dt>Thumbnail</dt>
+                        <dd><img src="{{ item.thmb }}"></dd>
+                        <dt>Square Thumbnail</dt>
+                        <dd><img src="{{ item.thmb_sq }}"></dd>
+                    </dl>
+
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
