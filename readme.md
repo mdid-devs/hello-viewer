@@ -47,9 +47,15 @@ However, the real purpose of hello-viewer is to see how it's not that hard to ma
 [hello.html](https://github.com/mdid-devs/hello-viewer/templates/hello.html), if you know HTML it shouldn't be too hard to adjust to
 [django's template language](https://docs.djangoproject.com/en/1.2/topics/templates/).
 
-For reference, here are the variables that you can add:
+For reference, here are some variables that you can use in your own template:
+
+{{ tag }}        | Function                 | Example
+---------------- | ------------------------ | --------------------------------------
+{{ return_url }} | link for a back button   | ```<a href="{{ return_url }}">Back</a>```
+ {{ options_form }}|  include the options form   | ```<form method="post">{% csrf_token %}form method="post">{% csrf_token %}{{ options_form }}</form>```
+{% url hello_static  %} | url of the static files  | ```<img src="{% url hello_static 'hello_mdid.png' %}">```
+{{ notes }} | The notes variable (supplied via the options_form)   | ``` {{ notes|default:'Hey, no form passed me anything!' }}```
 
 
 
-<img src="hello-viewer.png">
-
+![Image of Hello Viewer](https://github.com/mdid-devs/hello-viewer/raw/master/hello-viewer.png)
