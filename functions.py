@@ -1,6 +1,7 @@
 from django.conf import settings as settings
 import logging
 
+log = logging.getLogger('rooibos')
 
 def get_presentation_data(presentation, user):
 
@@ -23,8 +24,8 @@ def get_presentation_data(presentation, user):
         ]
 
         if settings.DEBUG:
-            logging.debug('===========data===============')
-            logging.debug(data)
+            log.debug('===========data===============')
+            log.debug(data)
 
         data.append(slide)
 

@@ -11,6 +11,8 @@ from rooibos.viewers import register_viewer, Viewer
 from rooibos.presentation.viewers import _get_presentation as get_presentation
 from functions import get_presentation_data
 
+log = logging.getLogger('rooibos.hello_viewer')
+
 
 class HelloViewer(Viewer):
     title = "HelloViewer"
@@ -20,7 +22,7 @@ class HelloViewer(Viewer):
     def get_options_form(self):
         class OptionsForm(forms.Form):
             notes = forms.CharField(help_text="Add notes if desired",
-                                    #widget=forms.Textarea
+                                    # widget=forms.Textarea
             )
 
         return OptionsForm
@@ -37,10 +39,9 @@ class HelloViewer(Viewer):
 
             if form.is_valid():
                 notes = form.cleaned_data['notes']
-                logging.debug('Hello Viewer - post received! notes: %s' % notes)
+                log.debug('Hello Viewer - post received! notes: %s' % notes)
         else:
             options_form = self.get_options_form()
-
 
         tmpl = os.path.normpath(os.path.join(os.path.dirname(__file__), 'templates', 'hello.html'))
         return render_to_response(tmpl,
@@ -61,7 +62,7 @@ class HelloViewer(Viewer):
 def helloviewer(obj, request, objid=None):
     presentation = get_presentation(obj, request, objid)
     if settings.DEBUG:
-        logging.debug('hello viewer - obj: %s ' % obj)
-        logging.debug('hello viewer - objid: %s ' % objid)
-        logging.debug('hello viewer - presentation: %s ' % presentation)
+        log.debug('hello viewer - obj: %s ' % obj)
+        log.debug('hello viewer - objid: %s ' % objid)
+        log.debug('hello viewer - presentation: %s ' % presentation)
     return HelloViewer(presentation, request.user) if presentation else None

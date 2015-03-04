@@ -1,0 +1,7 @@
+import os
+
+
+TEMPLATE_DIRS = (
+    os.path.normpath(os.path.join(os.path.dirname(__file__), 'templates')),
+)
+

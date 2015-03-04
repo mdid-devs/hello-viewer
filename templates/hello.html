@@ -1,8 +1,10 @@
 {% extends MASTER_TEMPLATE %}
+{% load staticfiles %}
+{% load ui %}
 
 {% block content %}
     <div style="float:right">
-        <a href="{{ return_url }}"><img src="{% url static 'images/bubblearrow-left.png' %}"></a>
+        <a href="{{ return_url }}"><img src="{%  static 'images/bubblearrow-left.png' %}"></a>
         <a href="{{ return_url }}">BACK</a>
         <div>
             <form method="post">{% csrf_token %}
@@ -12,7 +14,7 @@
             </form>
         </div>
     </div>
-    <h1><img src="{% url hello_static 'hello_mdid.png' %}"></h1>
+    <h1><img src="{% static 'hello_mdid.png' %}"> </h1>
 
     {{ notes|default:'Hey, no form passed me anything!' }}
 

@@ -24,13 +24,16 @@ A basic MDID3 viewer to use as a launchpad for making new MDID3 viewers. Vaguely
 
 1. Add the following to your rooibos/settings_local.py:
 
-    ```python
-    additional_settings = [
+```python
+additional_settings = [
     'apps.hello-viewer.settings_local',
-    ]
-    ```
+]
+INSTALLED_APPS = (
+    'rooibos.apps.hello-viewer',
+)
+```
 
-1. Restart web services
+1. Restart the web server (just httpd/nginx/iis - not the server)
 
 ## Viewing a presentation in hello-viewer
 
@@ -53,7 +56,7 @@ For reference, here are some variables that you can use in your own template:
 ---------------- | ------------------------ | --------------------------------------
 {{ return_url }} | link for a back button   | ```<a href="{{ return_url }}">Back</a>```
  {{ options_form }}|  include the options form   | ```<form method="post">{% csrf_token %}form method="post">{% csrf_token %}{{ options_form }}</form>```
-{% url hello_static  %} | url of the static files  | ```<img src="{% url hello_static 'hello_mdid.png' %}">```
+{% url 'file'  %} | url of the static files  | ```<img src="{% url 'hello_mdid.png' %}">```
 {{ notes }} | The notes variable (supplied via the options_form)   | ``` {{ notes|default:'Hey, no form passed me anything!' }}```
 
 
