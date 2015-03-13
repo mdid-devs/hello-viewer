@@ -63,13 +63,13 @@ For reference, here are some variables that you can use in your own template:
 
 {{ tag }}        | Function                 | Example
 ---------------- | ------------------------ | --------------------------------------
-{{ return_url }} | link for a back button   | `<a href="{{ return_url }}">Back</a>`
-{{ options_form }}|  include the options form   | `<form method="post">{% csrf_token %}form method="post">{% csrf_token %}{{ options_form }}</form>`
-{% url 'file'  %} | url of the static files  | `<img src="{% url 'hello_mdid.png' %}">`
-{{ notes }} | The notes variable (supplied via the options_form)   | ` {{ notes|default:'Hey, no form passed me anything!' }}`
-{{ options_form }}|  include the options form   | `<form method="post"> {% csrf_token %} {{ options_form } </form>`
-{% url hello_static  %} | url of the static files  | `<img src="{% url hello_static 'hello_mdid.png' %}">`
-{{ notes }} | The notes variable (supplied via the options_form)   | `{{ notes }}`
+{{&nbsp;return_url&nbsp;}} | link for a back button   | `<a href="{{ return_url }}">Back</a>`
+{{&nbsp;options_form&nbsp;}}|  include the options form   | `<form method="post">{% csrf_token %}form method="post">{% csrf_token %}{{ options_form }}</form>`
+{%&nbsp;url&nbsp;'file'&nbsp;%} | url of the static files  | `<img src="{% url 'hello_mdid.png' %}">`
+{{&nbsp;notes&nbsp;}} | The notes variable (supplied via the options_form)   | ` {{ notes|default:'Hey, no form passed me anything!' }}`
+{{&nbsp;options_form&nbsp;}}|  include the options form   | `<form method="post"> {% csrf_token %} {{ options_form } </form>`
+{%&nbsp;url&nbsp;hello_static&nbsp;%} | url of the static files  | `<img src="{% url hello_static 'hello_mdid.png' %}">`
+{{&nbsp;notes&nbsp;}} | The notes variable (supplied via the options_form)   | `{{ notes }}`
 
 ## Still TODO
 
