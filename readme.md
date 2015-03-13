@@ -65,7 +65,7 @@ For reference, here are some variables that you can use in your own template:
 ---------------- | ------------------------ | --------------------------------------
 {{&nbsp;return_url&nbsp;}} | link for a back button   | `<a href="{{ return_url }}">Back</a>`
 {{&nbsp;options_form&nbsp;}}|  include the options form   | `<form method="post">{% csrf_token %}form method="post">{% csrf_token %}{{ options_form }}</form>`
-{%&nbsp;url&nbsp;'file'&nbsp;%} | url of the static files  | `<img src="{% url 'hello_mdid.png' %}">`
+{%&nbsp;static&nbsp;'file'&nbsp;%} | url of the static files  (unchanging files like images, css, etc. | `<img src="{% static 'hello_mdid.png' %}">`
 {{&nbsp;notes&nbsp;}} | The notes variable (supplied via the options_form)   | ` {{ notes|default:'Hey, no form passed me anything!' }}`
 {{&nbsp;options_form&nbsp;}}|  include the options form   | `<form method="post"> {% csrf_token %} {{ options_form } </form>`
 {%&nbsp;url&nbsp;hello_static&nbsp;%} | url of the static files  | `<img src="{% url hello_static 'hello_mdid.png' %}">`
