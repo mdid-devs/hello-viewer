@@ -2,6 +2,14 @@
 
 A basic MDID3 viewer to use as a launchpad for making new MDID3 viewers. Vaguely inspired by the classic "Hello World" program, except that if we're honest we have to admit that just seeing the words "Hello. World" in a browser window doesn't impress anyone.
 
+### Viewer?
+
+Oh, right - MDID3 has a feature called "Viewers" - it shipped with several which you may be familiar with including View Presentation, Package Files, Print View. All (or most?) of the links that show up under "actions" on the edit presentation/light table page are technically "viewers." The Viewer is the feature that is responsible for
+
+    * Getting the images in a presentation
+    * Formatting/processing/packaging/etc. the images and associated data as desired 
+    * Presenting the results to the end user
+
 
 ### Features
 
@@ -12,7 +20,8 @@ A basic MDID3 viewer to use as a launchpad for making new MDID3 viewers. Vaguely
 
 ### Requirements
 
-* A working [MDID3](https://github.com/jmu-cit/) server
+* A working [MDID3](https://github.com/jmu-cit/) [server upgraded to django 1.6 (not released yet)](https://github.com/cit-jmu/rooibos/pull/37)
+* An idea for a new kind of viewer
 
 ## Installation
 
@@ -26,7 +35,7 @@ A basic MDID3 viewer to use as a launchpad for making new MDID3 viewers. Vaguely
 
 `python
 additional_settings = [
-    'apps.hello-viewer.settings_local',
+    'rooibos.apps.hello-viewer.settings_local',
 ]
 INSTALLED_APPS = (
     'rooibos.apps.hello-viewer',
@@ -46,9 +55,9 @@ INSTALLED_APPS = (
 
 It  outputs the items (aka slides) of a presentation to a page (similar in formatting to PDF View but not as refined) with full-sized image, both thumbnails and metadata.
 
-However, the real purpose of hello-viewer is to see how it's not that hard to make your own custom viewer.  Start by editing
+However, the real purpose of hello-viewer is to see how it's not that hard to make your own custom viewer if you have worked with any web page creation task in the past.  Start by editing
 [hello.html](https://github.com/mdid-devs/hello-viewer/templates/hello.html), if you know HTML it shouldn't be too hard to adjust to
-[django's template language](https://docs.djangoproject.com/en/1.2/topics/templates/).
+[django's template language](https://docs.djangoproject.com/en/1.6/topics/templates/). 
 
 For reference, here are some variables that you can use in your own template:
 
@@ -62,5 +71,9 @@ For reference, here are some variables that you can use in your own template:
 {% url hello_static  %} | url of the static files  | `<img src="{% url hello_static 'hello_mdid.png' %}">`
 {{ notes }} | The notes variable (supplied via the options_form)   | `{{ notes }}`
 
+## Still TODO
+
+Maybe write a better tutorial?
 
 ![Image of Hello Viewer](https://github.com/mdid-devs/hello-viewer/raw/master/hello-viewer.png)
+
