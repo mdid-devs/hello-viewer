@@ -15,7 +15,7 @@ MDID3 has a feature called "Viewers" - it shipped with several which you may be 
 
 * See a presentation of your choice rendered in glorious-but-not-particularly-refined HTML
 * Use the included source code to build your own
-    * Once it's working, try editing rooibos/apps/hello-viewer/templates/hello.html to change
+    * Once it's working, try editing rooibos/apps/hello_viewer/templates/hello.html to change
 
 ### Requirements
 
@@ -26,36 +26,36 @@ MDID3 has a feature called "Viewers" - it shipped with several which you may be 
 
 1. cd to your mdid/rooibos directory (where settings_local.py and manage.py are located) and type the following command:
 
-        git clone git@github.com:mdid-devs/hello-viewer.git apps/hello-viewer
+        git clone git@github.com:mdid-devs/hello_viewer.git apps/hello_viewer
 
-1. Save a copy of rooibos/apps/hello-viewer/settings_local_template.py as settings_local.py
+1. Save a copy of rooibos/apps/hello_viewer/settings_local_template.py as settings_local.py
 
 1. Add the following to your rooibos/settings_local.py:
 
 `python
 additional_settings = [
-    'rooibos.apps.hello-viewer.settings_local',
+    'rooibos.apps.hello_viewer.settings_local',
 ]
 INSTALLED_APPS = (
-    'rooibos.apps.hello-viewer',
+    'rooibos.apps.hello_viewer',
 )
 `
 
 1. Restart the web server (just httpd/nginx/iis - not the server)
 
-## Viewing a presentation in hello-viewer
+## Viewing a presentation in hello_viewer
 
 1. Edit a presentation (e.g. click Organization > Edit {Presentation Name}
 
 1. In the Actions side bar, click the link titled "HelloViewer"
 
 
-## What hello-viewer does
+## What hello_viewer does
 
 It  outputs the items (aka slides) of a presentation to a page (similar in formatting to PDF View but not as refined) with full-sized image, both thumbnails and metadata.
 
-However, the real purpose of hello-viewer is to see how it's not that hard to make your own custom viewer if you have worked with any web page creation task in the past.  Start by editing
-[hello.html](https://github.com/mdid-devs/hello-viewer/templates/hello.html), if you know HTML it shouldn't be too hard to adjust to
+However, the real purpose of hello_viewer is to see how it's not that hard to make your own custom viewer if you have worked with any web page creation task in the past.  Start by editing
+[hello.html](https://github.com/mdid-devs/hello_viewer/templates/hello.html), if you know HTML it shouldn't be too hard to adjust to
 [django's template language](https://docs.djangoproject.com/en/1.6/topics/templates/). 
 
 For reference, here are some variables that you can use in your own template:
@@ -74,5 +74,5 @@ For reference, here are some variables that you can use in your own template:
 
 Maybe write a better tutorial?
 
-![Image of Hello Viewer](https://github.com/mdid-devs/hello-viewer/raw/master/hello-viewer.png)
+![Image of Hello Viewer](https://github.com/mdid-devs/hello_viewer/raw/master/hello-viewer.png)
 
