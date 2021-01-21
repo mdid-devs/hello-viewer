@@ -3,8 +3,8 @@ import logging
 
 log = logging.getLogger('rooibos')
 
-def get_presentation_data(presentation, user):
 
+def get_presentation_data(presentation, user):
     items = presentation.items.filter(hidden=False)
     data = []
 
@@ -23,9 +23,9 @@ def get_presentation_data(presentation, user):
             dict(label=value.resolved_label, value=value.value) for value in fvs
         ]
 
-        # if settings.DEBUG:
-        #     log.debug('===========data===============')
-        #     log.debug(data)
+        if settings.DEBUG:
+            log.debug('===========data===============')
+            log.debug(data)
 
         data.append(slide)
 

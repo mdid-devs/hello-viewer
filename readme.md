@@ -2,25 +2,24 @@
 
 A basic MDID3 viewer to use as a launchpad for making new MDID3 viewers. Vaguely inspired by the classic "Hello World" program, except that if we're honest we have to admit that just seeing the words "Hello. World" in a browser window doesn't impress anyone.
 
-### Viewer?
+### What's a Viewer tho?
 
-Oh, right - MDID3 has a feature called "Viewers" - it shipped with several which you may be familiar with including View Presentation, Package Files, Print View. All (or most?) of the links that show up under "actions" on the edit presentation/light table page are technically "viewers." The Viewer is the feature that is responsible for
+MDID3 has a feature called "Viewers" - it shipped with several which you may be familiar with including View Presentation, Package Files, Print View. All (or most?) of the links that show up under "actions" on the edit presentation/light table page are technically "viewers." The Viewer is the feature that is responsible for
 
-    * Getting the images in a presentation
-    * Formatting/processing/packaging/etc. the images and associated data as desired 
-    * Presenting the results to the end user
+* Getting the images in a presentation
+* Formatting/processing/packaging/etc. the images and associated data as desired 
+* Presenting the results to the end user
 
 
 ### Features
 
 * See a presentation of your choice rendered in glorious-but-not-particularly-refined HTML
 * Use the included source code to build your own
-
     * Once it's working, try editing rooibos/apps/hello-viewer/templates/hello.html to change
 
 ### Requirements
 
-* A working [MDID3](https://github.com/jmu-cit/) [server upgraded to django 1.6 (not released yet)](https://github.com/cit-jmu/rooibos/pull/37)
+* Admin access on an [MDID](https://github.com/vrchost/rooibos/) server running version 3.5 (Django 1.11, python3)
 * An idea for a new kind of viewer
 
 ## Installation

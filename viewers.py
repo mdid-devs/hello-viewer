@@ -4,12 +4,12 @@ import logging
 from django import forms
 from django.conf import settings as settings
 from django.core.urlresolvers import reverse
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.template import RequestContext
 
 from rooibos.viewers import register_viewer, Viewer
 from rooibos.presentation.viewers import _get_presentation as get_presentation
-from functions import get_presentation_data
+from .functions import get_presentation_data
 
 log = logging.getLogger('rooibos.hello_viewer')
 
@@ -23,7 +23,7 @@ class HelloViewer(Viewer):
         class OptionsForm(forms.Form):
             notes = forms.CharField(help_text="Add notes if desired",
                                     # widget=forms.Textarea
-            )
+                                    )
 
         return OptionsForm
 
@@ -44,16 +44,15 @@ class HelloViewer(Viewer):
             options_form = self.get_options_form()
 
         tmpl = os.path.normpath(os.path.join(os.path.dirname(__file__), 'templates', 'hello.html'))
-        return render_to_response(tmpl,
-                                  {'presentation': presentation,
-                                   'hide_default_data': presentation.hide_default_data,
-                                   'title': presentation.title,
-                                   'notes': notes,
-                                   'data': data,
-                                   'options_form': options_form,
-                                   'return_url': return_url,
-                                  },
-                                  context_instance=RequestContext(request))
+        return render(request, tmpl,
+                      {'presentation': presentation,
+                       'hide_default_data': presentation.hide_default_data,
+                       'title': presentation.title,
+                       'notes': notes,
+                       'data': data,
+                       'options_form': options_form,
+                       'return_url': return_url,
+                       })
 
         # TODO: put in the embed code once the normal view is working
 
